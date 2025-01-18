@@ -18,6 +18,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            flex-direction: column;
         }
 
         @font-face {
@@ -109,8 +110,8 @@
     </style>
 </head>
 <body>
-    <!-- Background music -->
-    <audio autoplay loop>
+    <!-- Audio element -->
+    <audio id="backgroundMusic" autoplay loop muted>
         <source src="song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -123,7 +124,7 @@
 
     <script>
         const writingArea = document.getElementById('writingArea');
-        const textToWrite = "Anu, love is not about how much you say 'I love you,' but how much you prove that it's true.  Anu,  you came to my life very unexpected but I am very fortunate to have you. I am glad and very lucky to have you because you are so unique. I am so proud to love you and take care of you and even in hard times I will be with you, to support you, to help grow....................Always your kid Adithya";
+        const textToWrite = "Anu, love is not about how much you say 'I love you,' but how much you prove it's true. You came into my life unexpectedly, but I am very fortunate to have you. I am glad and lucky to have you because you are unique. I am so proud to love you and take care of you and even in hard times I will be with you, to support you, to help grow.................... Always your kid Adithya";
         let index = 0;
 
         function typeText() {
@@ -135,8 +136,16 @@
         }
 
         // Start typing effect when the page loads
-        window.onload = typeText;
+        window.onload = () => {
+            typeText();
+
+            // Unmute and increase the volume of background music after a delay
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            setTimeout(() => {
+                backgroundMusic.muted = false;
+                backgroundMusic.volume = 0.5; // Adjust volume level
+            }, 2000); // Delay in milliseconds before unmuting
+        };
     </script>
 </body>
 </html>
-
