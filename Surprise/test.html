@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Writing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('anu1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #880e4f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        @font-face {
+            font-family: 'Dancing Script';
+            src: url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid #ff99aa;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        #writingArea {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            border: 1px solid #ffccd5;
+            background-color: rgba(255, 245, 230, 0.7);
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            color: #880e4f;
+            border-radius: 10px;
+            box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c2185b;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h1:after {
+            content: "❤️";
+            margin-left: 10px;
+            color: #ff1744;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #880e4f;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            #writingArea {
+                height: 250px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            #writingArea {
+                height: 200px;
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background music -->
+    <audio autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h1>To, Anu</h1>
+        <div id="writingArea"></div>
+    </div>
+    <footer></footer>
+
+    <script>
+        const writingArea = document.getElementById('writingArea');
+        const textToWrite = "Anu, love is not about how much you say 'I love you,' but how much you prove that it's true.  Anu,  you came to my life very unexpected but I am very fortunate to have you. I am glad and very lucky to have you because you are so unique. I am so proud to love you and take care of you and even in hard times I will be with you, to support you, to help grow....................Always your kid Adithya";
+        let index = 0;
+
+        function typeText() {
+            if (index < textToWrite.length) {
+                writingArea.textContent += textToWrite[index];
+                index++;
+                setTimeout(typeText, 120); // Adjust speed here (milliseconds per character)
+            }
+        }
+
+        // Start typing effect when the page loads
+        window.onload = typeText;
+    </script>
+</body>
+</html>
+
