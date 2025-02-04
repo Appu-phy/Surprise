@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Countdown</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: 'Great Vibes', cursive;
+            color: white;
+            text-align: center;
+            background-color: #ff7eb3;
+        }
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1s infinite alternate;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        .countdown {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Love Countdown 💖</h1>
+    <div class="heart">❤️</div>
+    <div class="countdown" id="countdown"></div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('2025-02-14T00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeDiff = targetDate - now;
+            
+            if (timeDiff < 0) {
+                document.getElementById("countdown").innerHTML = "The special day has arrived! 💖";
+                return;
+            }
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
+
